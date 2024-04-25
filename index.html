@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.main-layer {
+  background: red;
+  position: absolute;
+  z-index: 1;
+  cursor: move;
+}
+
+.secondary-layer {
+  z-index: 2;
+  position: absolute;
+  background-color: rgb(255, 136, 0);
+  -webkit-mask-image: url(mask.svg);
+  mask-image: url(mask.svg);
+  mask-repeat: no-repeat;
+  mask-position: var(--x) var(--y);
+  mask-size: var(--r);
+}
+
+.container {
+  display: inline-block;
+}
+
+p {
+  font-size: 120px;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 10px;
+  width: auto;
+}
+
+  </style>
+</head>
+<body>
+  <main>
+    <div class="layer main-layer">
+      <div class="container">
+        <div class="title">
+          <p class="content">MAKING</p>
+          <P class="content">GOOD</P>
+          <p class="content">SHIT</p>
+          <p class="content">SINCE</p>
+          <p class="content">2009</p>
+        </div>
+      </div>
+    </div>
+    <div class="layer secondary-layer">
+      <div class="title">
+        <div class="header">
+          <p class="content">HIDING</p>
+          <P class="content">BAD</P>
+          <p class="content">SHIT</p>
+          <p class="content">SINCE</p>
+          <p class="content">2009</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    const primaryLayer = document.querySelector('.main-layer');
+    const secondaryLayer = document.querySelector('.secondary-layer');
+    secondaryLayer.addEventListener('mousemove', (e) => {
+      let maskSize = 100;
+
+      if (e.target.classList.contains('content')) {
+        maskSize = 500;
+      }
+      secondaryLayer.style.setProperty('--r', `${maskSize}px`);
+      secondaryLayer.style.setProperty('--x', `${e.clientX - maskSize / 2}px`);
+      secondaryLayer.style.setProperty('--y', `${e.clientY - maskSize / 2}px`);
+    })
+
+  </script>
+</body>
+</html>

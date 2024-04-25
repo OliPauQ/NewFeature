@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.main-layer {
+  background: red;
+  position: absolute;
+  z-index: 1;
+  cursor: move;
+}
+
+.secondary-layer {
+  z-index: 2;
+  position: absolute;
+  background-color: rgb(255, 136, 0);
+  -webkit-mask-image: url(mask.svg);
+  mask-image: url(mask.svg);
+  mask-repeat: no-repeat;
+  mask-position: var(--x) var(--y);
+  mask-size: var(--r);
+}
+
+.container {
+  display: inline-block;
+}
+
+p {
+  font-size: 120px;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 10px;
+  width: auto;
+}

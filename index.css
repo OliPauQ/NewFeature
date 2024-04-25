@@ -17,10 +17,17 @@ main {
 }
 
 .main-layer {
-  background: red;
+  background: black;
   position: absolute;
   z-index: 1;
   cursor: move;
+}
+.main-layer p{
+  color: rgb(143, 133, 133);
+}
+.main-layer p:nth-child(2),
+.main-layer p:nth-child(3){
+  color: rgb(255, 136, 0);
 }
 
 .secondary-layer {

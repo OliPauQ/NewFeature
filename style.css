@@ -15,7 +15,6 @@ main {
   display: grid;
   place-items: center;
 }
-
 .main-layer {
   background: black;
   position: absolute;
@@ -52,4 +51,5 @@ p {
   font-weight: 700;
   letter-spacing: 10px;
   width: auto;
+  padding: 0 50px;
 }
